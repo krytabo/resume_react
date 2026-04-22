@@ -66,15 +66,7 @@ const Hero = ({ lang }) => {
           <span style={{ color: "var(--accent)" }}>.</span>
         </h1>
 
-        <div className="reveal in" style={{
-          marginTop: 36,
-          display: "grid",
-          gridTemplateColumns: "1fr auto",
-          gap: 40,
-          alignItems: "end",
-          maxWidth: 900,
-          animationDelay: "0.15s",
-        }}>
+        <div className="hero-intro-grid reveal in" style={{ marginTop: 36, animationDelay: "0.15s" }}>
           <div>
             <div className="zh" style={{ fontSize: 22, fontWeight: 500, lineHeight: 1.35, letterSpacing: "-0.015em", color: "var(--ink)", maxWidth: 560, textWrap: "balance" }}>
               {lang === "zh" ? d.tagline : d.taglineEn}
@@ -84,7 +76,7 @@ const Hero = ({ lang }) => {
             </div>
           </div>
 
-          <div style={{ padding: "20px 24px", border: "1px solid var(--line-strong)", borderRadius: 14, background: "var(--panel)", minWidth: 240 }}>
+          <div className="hero-stats-card" style={{ padding: "20px 24px", border: "1px solid var(--line-strong)", borderRadius: 14, background: "var(--panel)", minWidth: 240 }}>
             <div className="eyebrow" style={{ marginBottom: 14 }}>
               {lang === "zh" ? "核心能量 · At a glance" : "At a glance"}
             </div>
@@ -98,15 +90,7 @@ const Hero = ({ lang }) => {
           </div>
         </div>
 
-        <div className="reveal in" style={{
-          marginTop: 80,
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          gap: 24,
-          paddingTop: 28,
-          borderTop: "1px solid var(--line)",
-          animationDelay: "0.3s",
-        }}>
+        <div className="hero-facts-grid reveal in" style={{ animationDelay: "0.3s" }}>
           <QuickFact k={lang === "zh" ? "經驗" : "Experience"} v={d.meta.experience} />
           <QuickFact k={lang === "zh" ? "所在地" : "Based in"} v={lang === "zh" ? "台中" : "Taichung, TW"} />
           <QuickFact k={lang === "zh" ? "核心技術" : "Stack"} v="Vue 3 · React" />

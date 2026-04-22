@@ -10,12 +10,14 @@ import Tweaks from './components/Tweaks.jsx'
 import { ACCENT_SWATCHES, FONT_OPTIONS, TWEAK_DEFAULTS } from './constants/tweaks.js'
 
 const SECTION_IDS = ["hero", "about", "experience", "skills", "projects", "contact"]
+const TWEAKS_VERSION = "2"  // ← 改 TWEAK_DEFAULTS 時順手加 1，舊存檔就會自動失效
 
 const App = () => {
   const [state, setState] = useState(() => {
     try {
       const saved = JSON.parse(localStorage.getItem("resume-tweaks") || "null")
-      return { ...TWEAK_DEFAULTS, ...(saved || {}) }
+      if (saved?.__v !== TWEAKS_VERSION) return TWEAK_DEFAULTS
+      return { ...TWEAK_DEFAULTS, ...saved }
     } catch { return TWEAK_DEFAULTS }
   })
   const [active, setActive] = useState("hero")
@@ -23,7 +25,7 @@ const App = () => {
 
   // Persist tweaks
   useEffect(() => {
-    localStorage.setItem("resume-tweaks", JSON.stringify(state))
+    localStorage.setItem("resume-tweaks", JSON.stringify({ ...state, __v: TWEAKS_VERSION }))
   }, [state])
 
   // Apply theme + accent + font + density to :root

@@ -94,7 +94,7 @@ const Projects = ({ lang }) => {
   return (
     <section id="projects" className="section">
       <SectionHead num="04" en="Projects" zh={lang === "zh" ? "代表作品" : "Selected work"} />
-      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 16 }}>
+      <div className="projects-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))", gap: 16 }}>
         {PROJECTS.map((p, i) => (
           <ProjectCard key={i} p={p} onOpen={() => setOpen(p)} />
         ))}

@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@200&family=Noto+Sans+TC:wght@400;900&family=Paytone+One&family=Sigmar&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -16,11 +19,11 @@
   --accent-soft: #fef3ed;
   --highlight: #fde68a;
 
-  --sans: "Manrope", "Noto Sans TC", system-ui, -apple-system, sans-serif;
-  --tc: "Noto Sans TC", "Manrope", sans-serif;
-  --serif: "Instrument Serif", "Noto Serif TC", Georgia, serif;
-  --mono: "JetBrains Mono", "M PLUS Rounded 1c", ui-monospace, monospace;
-  --rounded: "M PLUS Rounded 1c", "Noto Sans TC", sans-serif;
+  --sans: "M PLUS Rounded 1c", "Manrope";
+  --tc: "M PLUS Rounded 1c", "Manrope", "Noto Sans TC", sans-serif;
+  --serif: "M PLUS Rounded 1c", "Manrope", "Instrument Serif", Georgia, serif;
+  --mono: "M PLUS Rounded 1c", "Manrope", "JetBrains Mono", ui-monospace, monospace;
+  --rounded: "M PLUS Rounded 1c", "Manrope", sans-serif;
 
   --radius: 14px;
   --density: 1;
@@ -46,7 +49,7 @@ html, body { margin: 0; padding: 0; }
 body {
   background: var(--bg);
   color: var(--ink);
-  font-family: var(--sans);
+  font-family: var(--sans);;
   font-size: 15px;
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
@@ -249,4 +252,123 @@ body {
   .app { grid-template-columns: 1fr; }
   body { background: white; color: black; }
   .section { padding: 32px; border: 0; page-break-inside: avoid; }
+}
+
+/* ── Responsive layout classes ───────────────────────── */
+.hero-intro-grid {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 40px;
+  align-items: end;
+  max-width: 900px;
+}
+.hero-facts-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  padding-top: 28px;
+  border-top: 1px solid var(--line);
+  margin-top: 80px;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 72px;
+  align-items: start;
+}
+.strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.exp-job-header {
+  display: grid;
+  grid-template-columns: 120px 1fr auto;
+  gap: 24px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line-strong);
+  cursor: pointer;
+  align-items: baseline;
+}
+.exp-job-detail {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 24px;
+  padding-bottom: 28px;
+}
+.exp-prior-row {
+  display: grid;
+  grid-template-columns: 100px 1fr 1fr;
+  gap: 24px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  align-items: baseline;
+}
+.contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 56px;
+  align-items: center;
+}
+
+/* ── Mobile: sidebar → compact top bar (≤ 900px) ─────── */
+@media (max-width: 900px) {
+  .sidebar {
+    height: auto;
+    flex-direction: row;
+    align-items: center;
+    padding: 12px 16px;
+    gap: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+    overflow: visible;
+  }
+  .sidebar > div:first-child { flex-shrink: 0; margin-right: 14px; }
+  .sidebar > div:first-child .eyebrow { display: none; }
+  .sidebar .mark { font-size: 15px; }
+  .sidebar-controls { display: none !important; }
+  .sidebar .side-meta { display: none !important; }
+  .nav {
+    flex-direction: row;
+    /*overflow-x: auto;*/
+    flex: 1;
+    gap: 2px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .nav::-webkit-scrollbar { display: none; }
+  .nav a { white-space: nowrap; font-size: 12px; padding: 7px 9px; }
+  .nav a .en { display: none; }
+  .nav .num { display: none; }
+}
+
+/* ── Mobile: content layouts (≤ 700px) ──────────────── */
+@media (max-width: 700px) {
+  .section { padding: 48px 20px; }
+  .section-head h2 { font-size: 24px; }
+
+  /* Hero */
+  .hero-intro-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero-stats-card { display: none; }
+  .hero-facts-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 48px; }
+
+  /* About */
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .strengths-grid { grid-template-columns: 1fr; }
+
+  /* Experience */
+  .exp-job-header { grid-template-columns: 1fr auto; gap: 12px; }
+  .exp-job-header .exp-period { display: none; }
+  .exp-job-detail { grid-template-columns: 1fr; gap: 16px; }
+  .exp-prior-row { grid-template-columns: 80px 1fr; gap: 12px; }
+  .exp-prior-role { display: none; }
+
+  /* Contact */
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+
+  /* Projects */
+  .projects-grid { grid-template-columns: 1fr !important; }
+
+  /* Tweaks panel */
+  .tweaks-panel { right: 12px; bottom: 12px; width: calc(100vw - 24px); }
 }

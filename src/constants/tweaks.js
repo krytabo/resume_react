@@ -7,15 +7,15 @@ export const ACCENT_SWATCHES = [
 ];
 
 export const FONT_OPTIONS = [
-  { k: "manrope", label: "Manrope", stack: '"Manrope", "Noto Sans TC", sans-serif' },
-  { k: "rounded", label: "M PLUS Rounded", stack: '"M PLUS Rounded 1c", "Noto Sans TC", sans-serif' },
-  { k: "noto",    label: "Noto Sans TC", stack: '"Noto Sans TC", "Manrope", sans-serif' },
+  { k: "manrope", label: "Manrope", stack: '"M PLUS Rounded 1c", "Manrope", sans-serif' },
+  { k: "rounded", label: "M PLUS Rounded", stack: '"M PLUS Rounded 1c", "Manrope", sans-serif' },
+  { k: "noto",    label: "Noto Sans TC", stack: '"Manrope", "M PLUS Rounded 1c", "Noto Sans TC", sans-serif' },
 ];
 
 export const TWEAK_DEFAULTS = {
   theme: "light",
   lang: "zh",
-  accent: "sienna",
+  accent: "rose",
   font: "manrope",
   density: "normal",
 };

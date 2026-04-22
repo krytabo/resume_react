@@ -26,7 +26,7 @@ const Contact = ({ lang }) => {
     <section id="contact" className="section" style={{ borderBottom: 0, paddingBottom: 140 }}>
       <SectionHead num="05" en="Contact" zh={lang === "zh" ? "聯繫" : "Get in touch"} />
 
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.4fr) minmax(0, 1fr)", gap: 56, alignItems: "center" }}>
+      <div className="contact-grid">
         <div>
           <h3 style={{ fontFamily: "var(--sans)", fontSize: "clamp(36px, 6vw, 72px)", fontWeight: 800, letterSpacing: "-0.035em", lineHeight: 1.02, margin: "0 0 24px" }}>
             {lang === "zh"

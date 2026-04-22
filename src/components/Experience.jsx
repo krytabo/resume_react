@@ -15,9 +15,9 @@ const Experience = ({ lang }) => {
         <div key={i} style={{ marginBottom: 32 }}>
           <div
             onClick={() => setOpenIdx(openIdx === i ? -1 : i)}
-            style={{ display: "grid", gridTemplateColumns: "120px 1fr auto", gap: 24, padding: "20px 0", borderTop: "1px solid var(--line-strong)", cursor: "pointer", alignItems: "baseline" }}
+            className="exp-job-header"
           >
-            <div className="mono" style={{ fontSize: 11, color: "var(--ink-mute)", letterSpacing: "0.05em" }}>{job.period}</div>
+            <div className="mono exp-period" style={{ fontSize: 11, color: "var(--ink-mute)", letterSpacing: "0.05em" }}>{job.period}</div>
             <div>
               <div className="zh" style={{ fontSize: 22, fontWeight: 700, letterSpacing: "-0.02em", marginBottom: 4 }}>{job.company}</div>
               <div style={{ fontSize: 14, color: "var(--ink-soft)", fontFamily: "var(--sans)", fontWeight: 500 }}>
@@ -34,7 +34,7 @@ const Experience = ({ lang }) => {
           </div>
 
           <div style={{ maxHeight: openIdx === i ? 2000 : 0, overflow: "hidden", transition: "max-height .6s cubic-bezier(.2,.7,.2,1)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "120px 1fr", gap: 24, paddingBottom: 28 }}>
+            <div className="exp-job-detail">
               <div>
                 <div className="eyebrow" style={{ marginBottom: 4 }}>Scope</div>
                 <div className="zh" style={{ fontSize: 11, color: "var(--ink-soft)", lineHeight: 1.6 }}>{job.scope}</div>
@@ -66,10 +66,10 @@ const Experience = ({ lang }) => {
           {lang === "zh" ? "更早前的經歷 · Prior" : "Prior roles"}
         </div>
         {d.priorRoles.map((r, i) => (
-          <div key={i} style={{ display: "grid", gridTemplateColumns: "120px 1fr 1fr", gap: 24, padding: "12px 0", borderTop: "1px solid var(--line)", alignItems: "baseline" }}>
+          <div key={i} className="exp-prior-row">
             <div className="mono" style={{ fontSize: 10.5, color: "var(--ink-mute)" }}>{r.year}</div>
             <div className="zh" style={{ fontSize: 13, fontWeight: 500 }}>{r.company}</div>
-            <div className="zh" style={{ fontSize: 12, color: "var(--ink-mute)" }}>{r.role}</div>
+            <div className="zh exp-prior-role" style={{ fontSize: 12, color: "var(--ink-mute)" }}>{r.role}</div>
           </div>
         ))}
       </div>

@@ -36,7 +36,7 @@ const About = ({ lang }) => {
   return (
     <section id="about" className="section">
       <SectionHead num="01" en="About" zh={lang === "zh" ? "關於我" : "About me"} />
-      <div style={{ display: "grid", gridTemplateColumns: "minmax(0, 1.2fr) minmax(0, 1fr)", gap: 72, alignItems: "start" }}>
+      <div className="about-grid">
         <div className="zh" style={{ fontSize: 16, lineHeight: 1.8, color: "var(--ink-soft)" }}>
           {paragraphs.map((p, i) => (
             <p key={i} style={{ margin: "0 0 22px", fontWeight: i === 0 ? 500 : 400, color: i === 0 ? "var(--ink)" : "var(--ink-soft)", fontSize: i === 0 ? 18 : 15.5, textWrap: "pretty" }}>
@@ -44,7 +44,7 @@ const About = ({ lang }) => {
             </p>
           ))}
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12 }}>
+        <div className="strengths-grid">
           {d.strengths.map((s, i) => <StrengthCard key={i} s={s} />)}
         </div>
       </div>

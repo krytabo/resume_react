@@ -27,7 +27,7 @@ const btnBase = {
 
 const Sidebar = ({ active, onNavigate, lang, onLangToggle, theme, onThemeToggle }) => (
   <aside className="sidebar">
-    <div>
+    <div className="max-lg:flex-1">
       <div className="mark">
         Krystal Chu<span className="dot">.</span>
       </div>
@@ -36,7 +36,7 @@ const Sidebar = ({ active, onNavigate, lang, onLangToggle, theme, onThemeToggle 
       </div>
     </div>
 
-    <nav className="nav">
+    <nav className="nav max-lg:justify-end">
       {NAV_ITEMS.map(it => (
         <a
           key={it.id}
@@ -51,7 +51,7 @@ const Sidebar = ({ active, onNavigate, lang, onLangToggle, theme, onThemeToggle 
       ))}
     </nav>
 
-    {/*<div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+    {/*<div className="sidebar-controls" style={{ display: "flex", flexDirection: "column", gap: 10 }}>
       <div className="eyebrow">Controls</div>
       <div style={{ display: "flex", gap: 8 }}>
         <button onClick={onThemeToggle} style={btnBase}>
